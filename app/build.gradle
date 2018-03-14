@@ -25,6 +25,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.google.android.gms:play-services-maps:11.8.0'
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
 
     // Retrofit2 access API via network requests
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

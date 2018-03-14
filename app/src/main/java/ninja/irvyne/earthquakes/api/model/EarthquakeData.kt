@@ -3,19 +3,20 @@ package ninja.irvyne.earthquakes.api.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class EarthquakeData {
+data class EarthquakeData(
+        @SerializedName("type")
+        @Expose
+        var type: String? = null,
 
-    @SerializedName("type")
-    @Expose
-    var type: String? = null
-    @SerializedName("metadata")
-    @Expose
-    var metadata: Metadata? = null
-    @SerializedName("features")
-    @Expose
-    var features: List<Feature>? = null
-    @SerializedName("bbox")
-    @Expose
-    var bbox: List<Double>? = null
+        @SerializedName("metadata")
+        @Expose
+        var metadata: Metadata? = null,
 
-}
+        @SerializedName("features")
+        @Expose
+        var features: List<Feature>? = null,
+
+        @SerializedName("bbox")
+        @Expose
+        var bbox: List<Double>? = null
+)
