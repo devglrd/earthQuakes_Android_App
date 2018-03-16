@@ -12,7 +12,7 @@ Useful links:
 
 ## TODO
 
-The Android Project limit due date is Sunday, 1st of April at 11:59pm.
+The Android Project limit due date is Sunday, 1st of April at 11:59pm.  
 The project need to be hosted on [GitHub](https://github.com) and an email containing the link have to be send to the address thibaud[dot]bardin+iim[at]gmail.com
 
 
