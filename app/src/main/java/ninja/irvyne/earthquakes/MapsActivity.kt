@@ -23,10 +23,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var mService: EarthquakeService
+    private var mMessage: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        mMessage = intent.getStringExtra(MainActivity.EXTRA_CHOICE)
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -58,7 +62,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
 
-        mService.pleaseForgiveMe().enqueue(object : Callback<EarthquakeData> {
+        val request = when (mMessage) {
+            "All" -> mService.listSignificantEarthquakes()
+            "M1.0+" -> mService.listM4Earthquakes()
+            else -> mService.listSignificantEarthquakes()
+        }
+
+        request.enqueue(object : Callback<EarthquakeData> {
             override fun onFailure(call: Call<EarthquakeData>?, t: Throwable?) {
                 Log.e(TAG, "An error occurred with listSignificantEarthquakes(), error: $t")
                 longToast("Oups, an error occurred 🤟")
