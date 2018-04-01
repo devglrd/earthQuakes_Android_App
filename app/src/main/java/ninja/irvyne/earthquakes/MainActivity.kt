@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+        mainButtonList.setOnClickListener{
+            val intent = Intent(this, ListActivity::class.java).apply {
+                putExtra(EXTRA_CHOICE, mainSpinner.selectedItemId.toString())
+            }
+            startActivity(intent)
+        }
     }
 
     companion object {
